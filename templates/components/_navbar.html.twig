@@ -9,17 +9,25 @@
 		<div class="collapse navbar-collapse" id="navbar-top">
 			<div class="row w-100">
 				<ul class="navbar-nav w-100 d-flex justify-content-end align-items-middle mx-3 px-4 text-center">
-					<li id='nav-element-desktop' class="nav-Explorer col-2 mx-4">
+					<li id='nav-element-desktop' class="nav-Explorer col-2 mx-1">
 						<a class="nav-link text-secondary fw-bold" style="font-size: x-large;" href="{{ path('house') }}">Découvrir les lieux</a>
 					</li>
-					<li id='nav-element-desktop' class="nav-Explorer col-2 mx-4">
+					<li id='nav-element-desktop' class="nav-Explorer col-2 mx-1">
 						<a class="nav-link text-secondary fw-bold" style="font-size: x-large;" href="{{ path('info') }}">Informations utiles</a>
 					</li>
-					<li id='nav-element-desktop' class="nav-Explorer col-2 mx-4">
+					<li id='nav-element-desktop' class="nav-Explorer col-2 mx-1">
 						<a class="nav-link text-secondary fw-bold" style="font-size: x-large;" href="{{ path('booking_new') }}">Réservation</a>
 					</li>
-					<li id='nav-element-desktop' class="nav-Explorer col-3 mx-1">
-						<a type="button" href="{{ path('user_new') }}" class="btn btn-secondary btn-lg mx-4 border border-style-solid border-color-white fw-bold">Inscription / Connexion</a>
+					<li id='nav-element-desktop' class="nav-Explorer col-2 mx-1">
+						<a type="button" href="{{ path('user_new') }}" class="btn btn-secondary btn-lg border border-style-solid border-color-white fw-bold">Inscription</a>
+					</li>
+					<li id='nav-element-desktop' class="nav-Explorer col-2 mx-1">
+						<a type="button" href="{{ path('app_login') }}" class="btn btn-secondary btn-lg border border-style-solid border-color-white fw-bold">Connexion</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link d-flex" href="{{ path('app_logout') }}" title="Déconnexion">
+							<i class="material-icons text-danger fw-bold">power_settings_new</i>
+						</a>
 					</li>
 				</ul>
 			</div>

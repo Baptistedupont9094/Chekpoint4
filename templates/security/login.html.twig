@@ -1,0 +1,29 @@
+{% extends '_layoutUser.html.twig' %}
+
+{% block title %}Connexion{% endblock %}
+
+{% block content %}
+  <div class="row">
+    <div class="col-sm-9 col-md-7 col-lg-5 mx-auto m-5">
+      <div class="card card-signin bg-secondary text-light border">
+        <div class="card-body text-primary">
+          <h5 class="card-title text-center text-light">Connexion</h5>
+
+          <form class="form-signin mt-4" method="post">
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}" />
+
+            <div class="form-label-group">
+              <input type="email" value="{{ last_username }}" name="email" class="form-control" autocomplete="email" placeholder="Email" required autofocus>
+            </div>
+
+            <div class="form-label-group my-4">
+              <input type="password" name="password" class="form-control" autocomplete="current-password" placeholder="Mot de passe" required>
+            </div>
+
+            <button class="col-12 btn btn-lg btn-secondary btn-block text-uppercase mt-4 border" type="submit">Connexion</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

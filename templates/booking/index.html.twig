@@ -12,7 +12,6 @@
                 <th>StartDate</th>
                 <th>EndDate</th>
                 <th>NumberPeople</th>
-                <th>Activity</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -23,7 +22,6 @@
                 <td>{{ booking.startDate ? booking.startDate|date('Y-m-d') : '' }}</td>
                 <td>{{ booking.endDate ? booking.endDate|date('Y-m-d') : '' }}</td>
                 <td>{{ booking.numberPeople }}</td>
-                <td>{{ booking.activity }}</td>
                 <td>
                     <a href="{{ path('booking_show', {'id': booking.id}) }}">show</a>
                     <a href="{{ path('booking_edit', {'id': booking.id}) }}">edit</a>

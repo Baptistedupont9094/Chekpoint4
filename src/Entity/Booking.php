@@ -33,11 +33,6 @@ class Booking
     private $numberPeople;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $activity;
-
-    /**
      * @ORM\OneToOne(targetEntity=User::class, mappedBy="booking", cascade={"persist", "remove"})
      */
     private $user;
@@ -79,18 +74,6 @@ class Booking
     public function setNumberPeople(int $numberPeople): self
     {
         $this->numberPeople = $numberPeople;
-
-        return $this;
-    }
-
-    public function getActivity(): ?string
-    {
-        return $this->activity;
-    }
-
-    public function setActivity(string $activity): self
-    {
-        $this->activity = $activity;
 
         return $this;
     }
