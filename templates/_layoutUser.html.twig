@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-	{% include 'components/_navbar-user.html.twig' %}
+	{% include 'components/_navbar.html.twig' %}
 
 	<div class="container">
 		{% if block('title') is not empty %}
-			<h1 class="my-4 h1 text-center text-light">
+			<h1 class="my-4 h1 text-center text-secondary">
 				{{ block('title') }}
 			</h1>
 		{% endif %}

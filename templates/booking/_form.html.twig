@@ -1,4 +1,9 @@
+{% form_theme form 'bootstrap_5_horizontal_layout.html.twig' %}
+
 {{ form_start(form) }}
     {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+    <div class="text-center pt-3">
+        <button class="btn btn-secondary btn-lg  border mx-2">{{ button_label|default('Réserver') }}</button>
+        <a class="btn btn-secondary btn-lg  border mx-2" href="/">Retour</a>
+    </div>
 {{ form_end(form) }}
