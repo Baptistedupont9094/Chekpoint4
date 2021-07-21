@@ -2,5 +2,14 @@
 @import "~bootstrap/scss/bootstrap";
 
 body {
-    background-color: lightgray;
+    background-color: darkslategray;
+    background-image: url("../images/maison3.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    max-width: 100%;
+    font-family: 'Raleway', sans-serif;
+}
+
+a h2{
+    text-shadow: 0.1em 0.1em 0.2em black;
 }
