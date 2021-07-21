@@ -4,12 +4,6 @@
 	{% include 'components/_navbar.html.twig' %}
 
 	<div class="container">
-		{% if block('title') is not empty %}
-			<h1 class="my-4 h1 text-center text-secondary">
-				{{ block('title') }}
-			</h1>
-		{% endif %}
-
 		{% block content %}{% endblock %}
 	</div>
 {% endblock %}
