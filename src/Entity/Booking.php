@@ -37,6 +37,11 @@ class Booking
      */
     private $activity;
 
+    /**
+     * @ORM\OneToOne(targetEntity=User::class, mappedBy="booking", cascade={"persist", "remove"})
+     */
+    private $user;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -86,6 +91,28 @@ class Booking
     public function setActivity(string $activity): self
     {
         $this->activity = $activity;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        // unset the owning side of the relation if necessary
+        if ($user === null && $this->user !== null) {
+            $this->user->setBooking(null);
+        }
+
+        // set the owning side of the relation if necessary
+        if ($user !== null && $user->getBooking() !== $this) {
+            $user->setBooking($this);
+        }
+
+        $this->user = $user;
 
         return $this;
     }

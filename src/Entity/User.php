@@ -47,6 +47,11 @@ class User
      */
     private $phoneNumber;
 
+    /**
+     * @ORM\OneToOne(targetEntity=Booking::class, inversedBy="user", cascade={"persist", "remove"})
+     */
+    private $booking;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -120,6 +125,18 @@ class User
     public function setPhoneNumber(string $phoneNumber): self
     {
         $this->phoneNumber = $phoneNumber;
+
+        return $this;
+    }
+
+    public function getBooking(): ?Booking
+    {
+        return $this->booking;
+    }
+
+    public function setBooking(?Booking $booking): self
+    {
+        $this->booking = $booking;
 
         return $this;
     }
