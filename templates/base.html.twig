@@ -3,17 +3,21 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {# Run `composer require symfony/webpack-encore-bundle`
-           and uncomment the following Encore helpers to start using Symfony UX #}
         {% block stylesheets %}
-            {#{{ encore_entry_link_tags('app') }}#}
+            {{ encore_entry_link_tags('app') }}
         {% endblock %}
 
         {% block javascripts %}
-            {#{{ encore_entry_script_tags('app') }}#}
+            {{ encore_entry_script_tags('app') }}
         {% endblock %}
     </head>
     <body>
         {% block body %}{% endblock %}
+        {% block footer %}{% endblock %}
+        
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+		{{ encore_entry_script_tags('app') }}
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.min.js" integrity="sha512-Y2IiVZeaBwXG1wSV7f13plqlmFOx8MdjuHyYFVoYzhyRr3nH/NMDjTBSswijzADdNzMyWNetbLMfOpIPl6Cv9g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+		{% block javascripts %}{% endblock %}
     </body>
 </html>

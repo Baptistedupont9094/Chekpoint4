@@ -1,0 +1,19 @@
+{% include 'components/_navbar-base.html.twig' with {
+	links: [
+		{
+			'label': 'Mon compte',
+			'icon': 'map',
+			'route_name': 'user_index'
+		},
+		{
+			'label': 'Mes voyages',
+			'icon': 'flight',
+			'route_name': 'trip_index'
+		},
+				{
+			'label': 'FAQ',
+			'icon': 'question_answer',
+			'route_name': 'faq_index'
+		}
+	]
+} %}
