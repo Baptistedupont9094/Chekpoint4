@@ -24,9 +24,6 @@ class BookingType extends AbstractType
                 'widget' => 'single_text',
                 ])
             ->add('numberPeople', NumberType::class, ['label' => 'Nombre de personne(s)'])
-            ->add('activity', CheckboxType::class, [
-                'label' => 'Option',
-            ])
         ;
     }
 
