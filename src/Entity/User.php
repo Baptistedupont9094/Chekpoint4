@@ -185,6 +185,9 @@ class User implements UserInterface
         return $this;
     }
 
+    /**
+     * @see UserInterface
+     */
     public function getRoles(): ?array
     {
         $roles = $this->roles;
@@ -222,8 +225,23 @@ class User implements UserInterface
 
     }
 
-    public function getUserIdentifier()
+    public function __serialize(): array
     {
-        return $this->getId();
+        return [
+            'id' => $this->getId(),
+            'password' => $this->getPassword(),
+            'email' => $this->getEmail(),
+        ];
+    }
+    public function __unserialize(array $data): void
+    {
+        $this->id = $data['id'];
+        $this->password = $data['password'];
+        $this->email = $data['email'];
+    }
+
+    public function getUserIdentifier(): ?string
+    {
+        return $this->getEmail();
     }
 }

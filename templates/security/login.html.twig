@@ -9,13 +9,7 @@
 <div class="card bg-secondary thext-light p-3">
     <form method="post">
         {% if error %}
-            <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-        {% endif %}
-
-        {% if app.user %}
-            <div class="mb-3">
-                You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
-            </div>
+            <div class="alert alert-danger">Le compte n'existe pas ou le mot de passe est incorrect</div>
         {% endif %}
 
         <label for="inputEmail" class="text-light m-2">Email</label>

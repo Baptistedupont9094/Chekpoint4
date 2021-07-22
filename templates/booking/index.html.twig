@@ -27,15 +27,12 @@
                         <small class="text-light">Ajoutée il y a {{ booking.id }} minutes</small>
                     </div>
                 </div>
-                </div>
+            </div>
         </div>
     {% else %}
-        <tr>
-            <td colspan="6">no records found</td>
-        </tr>
+        <h1 class="text-secondary text-center mt-3">
+            Aucune réservation en attente
+        </h1>
     {% endfor %}
     </div>
-    </table>
-
-    <a href="{{ path('booking_new') }}">Create new</a>
 {% endblock %}

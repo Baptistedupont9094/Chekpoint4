@@ -12,13 +12,10 @@ use Symfony\Component\Routing\Annotation\Route;
 class AccountController extends AbstractController
 {
     #[Route('/account', name: 'account')]
-    public function index(BookingRepository $bookingRepository, UserRepository $userRepository, int $id): Response
+    public function index(User $user): Response
     {
         return $this->render('account/index.html.twig', [
-            'user' => $userRepository->findBy($this->getUser()->getId()),
-            'booking' => $bookingRepository->findBy([
-                'user' => $this->getUser()]
-            )
+            'user' => $this->getUser(),
         ]);
     }
 }
