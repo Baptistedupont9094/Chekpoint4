@@ -2,18 +2,28 @@
 @import "~bootstrap/scss/bootstrap";
 
 body {
-    background-color: darkslategray;
-    background-image: url("../images/maison3.jpg");
-    background-size: 100%;
-    background-repeat: no-repeat;
-    max-width: 100%;
+    background-color: whitesmoke;
     font-family: 'Raleway', sans-serif;
 }
 
-a h2{
+#logo{
     text-shadow: 0.1em 0.1em 0.2em black;
 }
 
 #titre{
   opacity: 0.75;
+}
+
+#background {
+  background-image: url("../images/maison3.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  min-width: 100%;
+  min-height: 100%;
+  position: fixed; 
+}
+
+#nav-element-desktop:hover{
+  text-decoration: underline darkslategray;
+  text-decoration-style: double;
 }

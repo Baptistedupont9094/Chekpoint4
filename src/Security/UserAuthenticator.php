@@ -2,7 +2,6 @@
 
 namespace App\Security;
 
-use Exception;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -17,19 +16,17 @@ use Symfony\Component\Security\Http\Authenticator\Passport\Passport;
 use Symfony\Component\Security\Http\Authenticator\Passport\PassportInterface;
 use Symfony\Component\Security\Http\Util\TargetPathTrait;
 
-class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
+class UserAuthenticator extends AbstractLoginFormAuthenticator
 {
     use TargetPathTrait;
 
     public const LOGIN_ROUTE = 'app_login';
 
     private UrlGeneratorInterface $urlGenerator;
-    private Security $security;
 
-    public function __construct(UrlGeneratorInterface $urlGenerator, Security $security)
+    public function __construct(UrlGeneratorInterface $urlGenerator)
     {
         $this->urlGenerator = $urlGenerator;
-        $this->security = $security;
     }
 
     public function authenticate(Request $request): PassportInterface
@@ -49,12 +46,8 @@ class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
 
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, string $firewallName): ?Response
     {
-        $targetPath = $this->urlGenerator->generate('trip_index');
-
-        if ($this->security->isGranted("ROLE_ADMIN")) {
-            $targetPath = $this->urlGenerator->generate('admin_user_index');
-        }
-
+        $targetPath = $this->urlGenerator->generate('account'); 
+        
         return new RedirectResponse($targetPath);
     }
 

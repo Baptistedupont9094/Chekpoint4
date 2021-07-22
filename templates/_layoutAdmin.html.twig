@@ -1,14 +1,8 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-	{% include 'components/_navbar.html.twig' %}
-
-	<div class="container-fluid p-2">
-		{% if block('title') is not empty %}
-			<h1 class="my-4 h1 text-center text-light">
-				{{ block('title') }}
-			</h1>
-		{% endif %}
+	<div id="background">
+		{% include 'components/_navbar.html.twig' %}
 
 		{% block content %}{% endblock %}
 	</div>

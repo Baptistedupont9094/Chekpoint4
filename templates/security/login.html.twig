@@ -3,27 +3,33 @@
 {% block title %}Connexion{% endblock %}
 
 {% block content %}
-  <div class="row">
-    <div class="col-sm-9 col-md-7 col-lg-5 mx-auto m-5">
-      <div class="card card-signin bg-secondary text-light border">
-        <div class="card-body text-primary">
-          <h5 class="card-title text-center text-light">Connexion</h5>
+<h1 class="my-4 h1 text-center text-secondary">
+    Connexion
+</h1>
+<div class="card bg-secondary thext-light p-3">
+    <form method="post">
+        {% if error %}
+            <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+        {% endif %}
 
-          <form class="form-signin mt-4" method="post">
-            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}" />
-
-            <div class="form-label-group">
-              <input type="email" value="{{ last_username }}" name="email" class="form-control" autocomplete="email" placeholder="Email" required autofocus>
+        {% if app.user %}
+            <div class="mb-3">
+                You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
             </div>
+        {% endif %}
 
-            <div class="form-label-group my-4">
-              <input type="password" name="password" class="form-control" autocomplete="current-password" placeholder="Mot de passe" required>
-            </div>
+        <label for="inputEmail" class="text-light m-2">Email</label>
+        <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
+        <label for="inputPassword" class="text-light m-2">Password</label>
+        <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
 
-            <button class="col-12 btn btn-lg btn-secondary btn-block text-uppercase mt-4 border" type="submit">Connexion</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
+        <input type="hidden" name="_csrf_token"
+            value="{{ csrf_token('authenticate') }}"
+        >
+
+        <button class="btn btn-lg btn-secondary border mt-3" type="submit">
+            Sign in
+        </button>
+    </form>
+</div>
 {% endblock %}

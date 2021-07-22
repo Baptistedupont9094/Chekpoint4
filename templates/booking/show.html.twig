@@ -1,16 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Booking{% endblock %}
+{% block title %}Réservation n°{{ booking.id }}{% endblock %}
 
 {% block body %}
-    <h1>Booking</h1>
+    <h1>Réservation n°{{ booking.id }}</h1>
 
     <table class="table">
         <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ booking.id }}</td>
-            </tr>
             <tr>
                 <th>StartDate</th>
                 <td>{{ booking.startDate ? booking.startDate|date('Y-m-d') : '' }}</td>
@@ -22,10 +18,6 @@
             <tr>
                 <th>NumberPeople</th>
                 <td>{{ booking.numberPeople }}</td>
-            </tr>
-            <tr>
-                <th>Activity</th>
-                <td>{{ booking.activity }}</td>
             </tr>
         </tbody>
     </table>

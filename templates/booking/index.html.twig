@@ -1,38 +1,40 @@
-{% extends 'base.html.twig' %}
+{% extends '_layoutUser.html.twig' %}
 
-{% block title %}Booking index{% endblock %}
+{% block title %}Réservation en cours{% endblock %}
 
-{% block body %}
-    <h1>Booking index</h1>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>StartDate</th>
-                <th>EndDate</th>
-                <th>NumberPeople</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for booking in bookings %}
-            <tr>
-                <td>{{ booking.id }}</td>
-                <td>{{ booking.startDate ? booking.startDate|date('Y-m-d') : '' }}</td>
-                <td>{{ booking.endDate ? booking.endDate|date('Y-m-d') : '' }}</td>
-                <td>{{ booking.numberPeople }}</td>
-                <td>
-                    <a href="{{ path('booking_show', {'id': booking.id}) }}">show</a>
-                    <a href="{{ path('booking_edit', {'id': booking.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="6">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
+{% block content %}
+    <h1 class="my-4 h1 text-center text-secondary">
+        Réservation en attente
+    </h1>
+    <div class="row row-cols-1 row-cols-md-3 g-4 m-4">
+    {% for booking in bookings %}
+        <div class="col">
+            <div class="card col-2 m-3 bg-secondary text-light text-center" style="width:18rem;">
+                <div class="card-header">
+                    Réservation n° {{ booking.id }}
+                </div>
+                <div class="card-body">
+                    <p class="card-text">Date de début: {{ booking.startDate ? booking.startDate|date('Y-m-d') : '' }}</p>
+                    <p class="card-text">Date de fin: {{ booking.endDate ? booking.endDate|date('Y-m-d') : '' }}</p>
+                    <p class="card-text">Nombre de personnes: {{ booking.numberPeople }}</p>
+                    <a href="{{ path('booking_show', {'id': booking.id}) }}" class="btn btn-secondary" title=" Contacter par mail">
+                        <i class="material-icons text-light fw-bold">email</i>
+                    </a>
+                    <a href="{{ path('booking_show', {'id': booking.id}) }}" class="btn btn-secondary" title=" Contacter par téléphone">
+                        <i class="material-icons text-light fw-bold">phone</i>
+                    </a>
+                    <div class="card-footer">
+                        <small class="text-light">Ajoutée il y a {{ booking.id }} minutes</small>
+                    </div>
+                </div>
+                </div>
+        </div>
+    {% else %}
+        <tr>
+            <td colspan="6">no records found</td>
+        </tr>
+    {% endfor %}
+    </div>
     </table>
 
     <a href="{{ path('booking_new') }}">Create new</a>

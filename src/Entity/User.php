@@ -9,7 +9,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
  */
-class User
+class User implements UserInterface
 {
     /**
      * @ORM\Id
@@ -188,7 +188,6 @@ class User
     public function getRoles(): ?array
     {
         $roles = $this->roles;
-        // guarantee every user at least has ROLE_USER
         $roles[] = 'ROLE_USER';
 
         return array_unique($roles);
@@ -216,5 +215,15 @@ class User
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
+    }
+
+    public function getUsername()
+    {
+
+    }
+
+    public function getUserIdentifier()
+    {
+        return $this->getId();
     }
 }
