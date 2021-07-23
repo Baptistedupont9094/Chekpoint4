@@ -35,7 +35,9 @@ class BookingController extends AbstractController
             $entityManager->persist($booking);
             $entityManager->flush();
 
-            return $this->redirectToRoute('booking_index', [], Response::HTTP_SEE_OTHER);
+            $this->addFlash('success', [ 'text' => 'Votre réservation a été prise en compte' ]);
+
+            return $this->redirectToRoute('home', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('booking/new.html.twig', [

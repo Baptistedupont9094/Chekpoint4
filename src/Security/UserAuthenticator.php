@@ -48,7 +48,7 @@ class UserAuthenticator extends AbstractLoginFormAuthenticator
 
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, string $firewallName): ?Response
     {
-        $targetPath = $this->urlGenerator->generate('account'); 
+        $targetPath = $this->urlGenerator->generate('home'); 
 
         if ($this->security->isGranted("ROLE_ADMIN")) {
             $targetPath = $this->urlGenerator->generate('admin');

@@ -6,7 +6,7 @@
 <h1 class="my-4 h1 text-center text-secondary">
     Connexion
 </h1>
-<div class="card bg-secondary thext-light p-3">
+<div class="card bg-secondary thext-light p-3 col-6 offset-3">
     <form method="post">
         {% if error %}
             <div class="alert alert-danger">Le compte n'existe pas ou le mot de passe est incorrect</div>
@@ -20,10 +20,11 @@
         <input type="hidden" name="_csrf_token"
             value="{{ csrf_token('authenticate') }}"
         >
-
-        <button class="btn btn-lg btn-secondary border mt-3" type="submit">
-            Valider
-        </button>
+        <div class="text-center">
+            <button class="btn btn-lg btn-secondary border mt-3" type="submit">
+                Valider
+            </button>
+        </div>
     </form>
 </div>
 {% endblock %}
